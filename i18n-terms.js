@@ -215,52 +215,53 @@
       privacy_link: "política de privacidad"
     }
   };
-(function () {
-  const I18N = /* ton dictionnaire tel quel */;
 
-  const SUPPORTED = ["en","fr","es"];
+  
+// Détection de langue : paramètre ?lang prioritaire, sinon préférences navigateur.
+// Valeurs supportées : 'en' | 'fr' | 'es' ; fallback : 'en'
+function detectLang() {
+  const params = new URLSearchParams(location.search);
+  const forced = params.get("lang");
+  if (forced && ["en", "fr", "es"].includes(forced)) return forced;
 
-  function normalize(code) {
-    // "fr", "fr-FR", "FR-fr" → "fr"
-    return (code || "").toLowerCase().split("-")[0];
-  }
-
-  function detectLangFromSystem() {
-    // Essaye navigator.languages en priorité, puis navigator.language
-    const candidates = (navigator.languages && navigator.languages.length
+  const list =
+    (navigator.languages && navigator.languages.length)
       ? navigator.languages
-      : [navigator.language || navigator.userLanguage || "en"]
-    ).map(normalize);
+      : [navigator.language || "en"];
 
-    // Première langue supportée rencontrée
-    for (const c of candidates) {
-      if (SUPPORTED.includes(c)) return c;
-    }
-    return "en"; // fallback
+  for (const l of list) {
+    const base = String(l || "").toLowerCase().slice(0, 2);
+    if (["en", "fr", "es"].includes(base)) return base;
   }
+  return "en"; // fallback
+}
 
-  function applyI18n(lang) {
-    const d = I18N[lang] || I18N.en;
+function applyI18n(lang) {
+  const dict = I18N[lang] || I18N.en;
 
-    document.documentElement.setAttribute("lang", lang);
+  // html@lang + data-lang
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.lang = lang;
 
-    if (d.title) document.title = d.title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta && d.meta_desc) meta.setAttribute('content', d.meta_desc);
+  // title & meta
+  document.title = dict.title;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute('content', dict.meta_desc);
 
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const k = el.getAttribute("data-i18n");
-      if (k && d[k] !== undefined) el.innerHTML = d[k];
-    });
-
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    try { applyI18n(detectLangFromSystem()); }
-    catch (e) { console.error("[i18n]", e); }
+  // Contenu i18n (avec HTML autorisé)
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
-})();
-</script>
 
+  // Footer : année courante
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = detectLang();
+  applyI18n(lang);
+});
+</script>
