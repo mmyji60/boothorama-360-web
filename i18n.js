@@ -374,3 +374,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = detectLang();
   applyI18n(lang);
 });
+</script>
