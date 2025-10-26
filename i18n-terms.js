@@ -215,30 +215,52 @@
       privacy_link: "política de privacidad"
     }
   };
-// Only allow URL override; default to English
-function detectLang() {
-  const params = new URLSearchParams(location.search);
-  const forced = params.get("lang");
-  if (forced && ["en","fr","es"].includes(forced)) return forced;
-  return "en";
-}
+(function () {
+  const I18N = /* ton dictionnaire tel quel */;
 
-function applyI18n(lang) {
-  const d = I18N[lang] || I18N.en;
-  document.documentElement.lang = lang;
-  document.title = d.title;
+  const SUPPORTED = ["en","fr","es"];
 
-  const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute('content', d.meta_desc);
+  function normalize(code) {
+    // "fr", "fr-FR", "FR-fr" → "fr"
+    return (code || "").toLowerCase().split("-")[0];
+  }
 
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (d[k] !== undefined) el.innerHTML = d[k];
+  function detectLangFromSystem() {
+    // Essaye navigator.languages en priorité, puis navigator.language
+    const candidates = (navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"]
+    ).map(normalize);
+
+    // Première langue supportée rencontrée
+    for (const c of candidates) {
+      if (SUPPORTED.includes(c)) return c;
+    }
+    return "en"; // fallback
+  }
+
+  function applyI18n(lang) {
+    const d = I18N[lang] || I18N.en;
+
+    document.documentElement.setAttribute("lang", lang);
+
+    if (d.title) document.title = d.title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta && d.meta_desc) meta.setAttribute('content', d.meta_desc);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (k && d[k] !== undefined) el.innerHTML = d[k];
+    });
+
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    try { applyI18n(detectLangFromSystem()); }
+    catch (e) { console.error("[i18n]", e); }
   });
-
-  const y = document.getElementById('y');
-  if (y) y.textContent = new Date().getFullYear();
-}
-
-document.addEventListener('DOMContentLoaded', () => applyI18n(detectLang()));
+})();
 </script>
+
