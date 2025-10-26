@@ -67,29 +67,52 @@ const I18N = {
   }
 };
 
-// Only allow URL override; default to English
+
+// Détection de langue : paramètre ?lang prioritaire, sinon préférences navigateur.
+// Valeurs supportées : 'en' | 'fr' | 'es' ; fallback : 'en'
 function detectLang() {
   const params = new URLSearchParams(location.search);
   const forced = params.get("lang");
-  if (forced && ["en","fr","es"].includes(forced)) return forced;
-  return "en";
+  if (forced && ["en", "fr", "es"].includes(forced)) return forced;
+
+  const list =
+    (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || "en"];
+
+  for (const l of list) {
+    const base = String(l || "").toLowerCase().slice(0, 2);
+    if (["en", "fr", "es"].includes(base)) return base;
+  }
+  return "en"; // fallback
 }
 
-function applyI18n(lang){
-  const d = I18N[lang] || I18N.en;
+function applyI18n(lang) {
+  const dict = I18N[lang] || I18N.en;
+
+  // html@lang + data-lang
   document.documentElement.lang = lang;
-  document.title = d.title;
+  document.documentElement.dataset.lang = lang;
 
+  // title & meta
+  document.title = dict.title;
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute('content', d.meta_desc);
+  if (meta) meta.setAttribute('content', dict.meta_desc);
 
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k = el.getAttribute('data-i18n');
-    if (d[k] !== undefined) el.innerHTML = d[k];
+  // Contenu i18n (avec HTML autorisé)
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
 
-  const y = document.getElementById('y');
+  // Footer : année courante
+  const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 }
 
-document.addEventListener('DOMContentLoaded', ()=>applyI18n(detectLang()));
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = detectLang();
+  applyI18n(lang);
+});
+</script>
