@@ -216,7 +216,7 @@
     }
   };
 
-  
+
 // Détection de langue : paramètre ?lang prioritaire, sinon préférences navigateur.
 // Valeurs supportées : 'en' | 'fr' | 'es' ; fallback : 'en'
 function detectLang() {
