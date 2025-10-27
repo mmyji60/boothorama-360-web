@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en" data-lang="en">
 <head>
+    <!-- Bootstrap langue : pose html@lang AVANT le 1er rendu, sans lire ?lang -->
+  <script>
+    (function () {
+      var supported = ["en", "fr", "es"];
+      var list = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || "en"];
+      var pick = "en";
+      for (var i = 0; i < list.length; i++) {
+        var base = String(list[i] || "").toLowerCase().slice(0, 2);
+        if (supported.indexOf(base) !== -1) { pick = base; break; }
+      }
+      // Pose la langue AVANT le premier paint + masque jusqu'à i18n
+      var html = document.documentElement;
+      html.setAttribute("lang", pick);
+      html.dataset.lang = pick;
+      html.style.visibility = "hidden";
+      window.__BOOTHR_LANG__ = pick;
+    })();
+  </script>
   <meta charset="utf-8">
   <title data-i18n="title">FAQ – Boothorama 360</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
