@@ -1,4 +1,3 @@
-<script>
   const dict = {
     fr: {
       title: "Conditions d’utilisation – Boothorama 360",
@@ -254,4 +253,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = detectLang();
   applyI18n(lang);
 });
-</script>
