@@ -153,101 +153,97 @@ a:hover{opacity:.95; text-decoration:underline}
   .hero__title{font-size:28px}
   .nav a{margin-left:8px}
 }
+/* ====== Header & Nav responsive (dark, cohérent avec le thème) ====== */
 
-/* ====== Header & Nav responsive ====== */
-.header {
-  border-bottom: 1px solid #eee;
-  background: #fff;
+/* Header collant, sombre et translucide */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: saturate(1.1) blur(10px);
+  background: linear-gradient(180deg, rgba(13,14,20,.85), rgba(20,24,38,.65));
+  border-bottom: 1px solid var(--line);
 }
-.header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.header__inner{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
   padding: 10px 16px;
 }
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: inherit;
-}
-.brand__logo--xl img {
-  display: block;
-  width: 32px;
-  height: 32px;
-}
 
-/* Burger (mobile) */
-.nav-toggle {
+/* Bouton burger (dark) */
+.nav-toggle{
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid #ddd;
-  background: #fff;
   padding: 8px 10px;
-  border-radius: 10px;
-  font: inherit;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
   cursor: pointer;
 }
-.nav-toggle:focus-visible {
+.nav-toggle:hover{
+  background: rgba(255,255,255,.09);
+}
+.nav-toggle:focus-visible{
   outline: 2px solid #5b9cff;
   outline-offset: 2px;
 }
-.nav-toggle__icon { display: inline-flex; }
+.nav-toggle__icon{ display: inline-flex; }
 
-/* Nav mobile: cachée par défaut, affichée quand .is-open */
-.nav {
+/* Nav mobile : hors flux sous le header, animé */
+.nav{
   position: absolute;
-  top: 60px;                 /* ~ hauteur du header */
-  left: 0;
-  right: 0;
+  top: 100%;
+  left: 0; right: 0;
   display: none;
   flex-direction: column;
   gap: 6px;
-  padding: 12px 16px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  /* petite ombre pour détacher */
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  padding: 12px 16px 16px;
+  background: linear-gradient(180deg, rgba(23,27,42,.98), rgba(23,27,42,.92));
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  transform-origin: top;
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: transform .18s ease, opacity .18s ease;
 }
-.nav a {
+.nav.is-open{
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+.nav a{
   padding: 10px 8px;
   text-decoration: none;
-  color: #222;
-  border-radius: 8px;
+  color: var(--text);
+  border-radius: 10px;
+  opacity: .9;
+  transition: background .15s, opacity .15s;
 }
-.nav a[aria-current="page"] {
-  font-weight: 600;
-}
-.nav a:focus-visible {
-  outline: 2px solid #5b9cff;
-  outline-offset: 2px;
+.nav a:hover{ opacity: 1; background: rgba(255,255,255,.06); }
+.nav a[aria-current="page"]{
+  background: linear-gradient(135deg, rgba(123,44,246,.22), rgba(0,201,255,.22));
+  border: 1px solid rgba(255,255,255,.08);
 }
 
-.nav.is-open { display: flex; }
+/* Bloquer le scroll quand le menu mobile est ouvert */
+html.no-scroll, body.no-scroll { overflow: hidden; }
 
 /* Desktop ≥768px : nav inline, burger caché */
-@media (min-width: 768px) {
-  .nav-toggle { display: none; }
-  .header__inner { padding: 12px 20px; }
-  .nav {
+@media (min-width: 768px){
+  .nav-toggle{ display:none; }
+  .nav{
     position: static;
-    display: flex !important;  /* force l’affichage en desktop */
+    display: flex !important;
     flex-direction: row;
     align-items: center;
     gap: 18px;
     padding: 0;
-    box-shadow: none;
+    background: transparent;
     border: 0;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
   }
-  .nav a { padding: 8px 4px; }
+  .nav a{ padding: 8px 6px; }
 }
-
-/* Évite les transitions inutiles si l’utilisateur préfère réduire les animations */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
-html.no-scroll, body.no-scroll { overflow: hidden; }
-
