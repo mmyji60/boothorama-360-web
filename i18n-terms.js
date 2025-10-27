@@ -1,4 +1,4 @@
-  const dict = {
+  const I18N = {
     fr: {
       title: "Conditions d’utilisation – Boothorama 360",
       meta_desc: "Conditions générales d’utilisation de l’application Boothorama 360.",
