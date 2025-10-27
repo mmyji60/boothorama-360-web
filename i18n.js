@@ -10,6 +10,7 @@ const I18N = {
     meta_desc: "Politique de confidentialité de l'application Boothorama 360.",
     nav_privacy: "Confidentialité",
     nav_legal: "Mentions légales",
+    nav_terms: "Conditions d'utilisation",
     nav_faq: "FAQ",
     badge_rgpd: "Conforme RGPD",
     h1: "Politique de confidentialité",
@@ -117,6 +118,7 @@ const I18N = {
     meta_desc: "Privacy policy for the Boothorama 360 app.",
     nav_privacy: "Privacy",
     nav_legal: "Legal Notice",
+    nav_terms: "Terms of Use",
     nav_faq: "FAQ",
     badge_rgpd: "GDPR Compliant",
     h1: "Privacy Policy",
@@ -138,6 +140,8 @@ const I18N = {
       "<strong>Local media</strong>: videos/images captured in the app — stored <em>on your device</em>. No upload to our servers.",
     s1_l2:
       "<strong>Google Drive export (optional)</strong>: when enabled, rendered videos are uploaded to your Drive. The app stores locally the file ID/share link to manage the QR code.",
+    s1_l2b:
+  "<strong>Google Drive export (optional)</strong>: when enabled, the rendered video is uploaded to your Drive using Google tokens. Locally, the app keeps the file ID/share link (for the QR code).",
     s1_l3:
       "<strong>Permissions</strong>: camera & microphone (record), storage (save), network (upload).",
     s1_l4:
@@ -224,6 +228,7 @@ const I18N = {
     meta_desc: "Política de privacidad de la aplicación Boothorama 360.",
     nav_privacy: "Privacidad",
     nav_legal: "Aviso legal",
+    nav_terms: "Condiciones de uso",
     nav_faq: "FAQ",
     badge_rgpd: "Cumple con RGPD",
     h1: "Política de privacidad",
@@ -245,6 +250,8 @@ const I18N = {
       "<strong>Medios locales</strong>: vídeos/imágenes almacenados <em>en tu dispositivo</em>. No se suben a nuestros servidores.",
     s1_l2:
       "<strong>Exportación a Google Drive (opcional)</strong>: si está activado, los vídeos renderizados se suben a tu Drive. La app guarda localmente el ID/enlace del archivo para gestionar el código QR.",
+    s1_l2b:
+  "<strong>Exportación a Google Drive (opcional)</strong>: si está activado, el vídeo montado se sube a tu Drive con los tokens de Google. Localmente, la app guarda el ID/enlace del archivo (para el código QR).",
     s1_l3:
       "<strong>Permisos</strong>: cámara y micrófono (grabar), almacenamiento (guardar), red (subir).",
     s1_l4:
