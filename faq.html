@@ -20,6 +20,40 @@
       html.style.visibility = "hidden";
       window.__BOOTHR_LANG__ = pick;
     })();
+      (function () {
+    var btn = document.querySelector(".nav-toggle");
+    var nav = document.getElementById("primary-nav");
+
+    if (!btn || !nav) return;
+
+    function setOpen(isOpen) {
+      btn.setAttribute("aria-expanded", String(isOpen));
+      nav.classList.toggle("is-open", isOpen);
+      // Empêche le body de défiler quand le menu est ouvert sur mobile
+      document.documentElement.classList.toggle("no-scroll", isOpen);
+      document.body.classList.toggle("no-scroll", isOpen);
+    }
+
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      setOpen(!open);
+    });
+
+    // Fermer si on clique un lien
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") setOpen(false);
+    });
+
+    // Fermer si on redimensionne en desktop
+    var mq = window.matchMedia("(min-width: 768px)");
+    mq.addEventListener ? mq.addEventListener("change", handleMQ) : mq.addListener(handleMQ);
+    function handleMQ(e) { if (e.matches) setOpen(false); }
+
+    // Fermer sur Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+  })();
   </script>
   <meta charset="utf-8">
   <title data-i18n="title">FAQ – Boothorama 360</title>
@@ -30,22 +64,36 @@
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="./">
-        <span class="brand__logo brand__logo--xl">
-          <img src="logo.png" alt="Boothorama 360">
-        </span>
-        <span class="brand__name">Boothorama 360</span>
-      </a>
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="./" data-i18n="nav_privacy">Confidentialité</a>
-        <a href="terms.html" data-i18n="nav_terms">Conditions d’utilisation</a>
-        <a href="legal.html" data-i18n="nav_legal">Mentions légales</a>
-        <a href="faq.html" data-i18n="nav_faq" aria-current="page">FAQ</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="./">
+      <span class="brand__logo brand__logo--xl">
+        <img src="logo.png" alt="Boothorama 360">
+      </span>
+      <span class="brand__name">Boothorama 360</span>
+    </a>
+
+    <!-- Bouton burger -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" data-i18n="menu_label">
+      Menu
+      <span class="nav-toggle__icon" aria-hidden="true">
+        <!-- icône burger simple -->
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="primary-nav" class="nav" aria-label="Navigation principale">
+      <a href="./" data-i18n="nav_privacy" aria-current="page">Confidentialité</a>
+      <a href="terms.html" data-i18n="nav_terms">Conditions d’utilisation</a>
+      <a href="legal.html" data-i18n="nav_legal">Mentions légales</a>
+      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
 
 <section class="hero container">
   <div>
