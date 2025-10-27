@@ -1,4 +1,3 @@
-<script>
 const I18N = {
   fr: {
     title: "Mentions légales – Boothorama 360",
@@ -136,4 +135,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = detectLang();
   applyI18n(lang);
 });
-</script>
