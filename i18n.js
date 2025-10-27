@@ -1,25 +1,28 @@
 // i18n.js — Politique de confidentialité Boothorama 360
-// FR / EN / ES, fallback par défaut : EN
-// ➜ Authentification : Firebase Authentication (Google) + compte anonyme
-// ➜ Export : Google Drive (optionnel)
-// ➜ Projet relié à Google Cloud Console (pas d’hébergement de médias par Boothorama)
+// Basé uniquement sur la langue du système (navigator), sans ?lang.
+// FR / EN / ES — fallback : EN
 
 const I18N = {
   fr: {
     title: "Politique de confidentialité – Boothorama 360",
     meta_desc: "Politique de confidentialité de l'application Boothorama 360.",
+
+    // NAV
     nav_privacy: "Confidentialité",
+    nav_terms: "Conditions d’utilisation",
     nav_legal: "Mentions légales",
-    nav_terms: "Conditions d'utilisation",
     nav_faq: "FAQ",
+
+    // HERO
     badge_rgpd: "Conforme RGPD",
     h1: "Politique de confidentialité",
     intro:
       "Nous expliquons ici quelles données sont traitées par <strong>Boothorama 360</strong>, pourquoi et pendant combien de temps. Aucune publicité, aucun traqueur.",
 
+    // CONTENT
     who: "1. Qui est responsable ?",
     who_p:
-      'Le responsable de traitement est <strong>Boothorama</strong> (voir <a href="mentions-legales.html">mentions légales</a>). Contact DPO/Privacy : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'Le responsable de traitement est <strong>Boothorama</strong> (voir <a href="legal.html">mentions légales</a>). Contact DPO/Privacy : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     account: "2. Comptes et authentification",
     account_l1:
@@ -31,13 +34,15 @@ const I18N = {
     s1_l1:
       "<strong>Médias locaux</strong> : vidéos/images capturées dans l’app — stockées <em>sur l’appareil</em>. Aucun envoi vers nos serveurs.",
     s1_l2:
-      "<strong>Export Google Drive (option)</strong> : si activé, les vidéos montées sont téléversées dans votre Drive. L’app conserve localement l’ID fichier/le lien de partage pour gérer le QR code.",
+      "<strong>Identifiants d’authentification</strong> (Firebase Auth) : uid, fournisseur (Google/Anonyme) et, le cas échéant, métadonnées Google (e-mail, nom, photo).",
+    s1_l2b:
+      "<strong>Export Google Drive (option)</strong> : si activé, la vidéo montée est téléversée dans votre Drive via les jetons Google. Localement, l’app conserve l’ID du fichier / le lien de partage (pour le QR code).",
     s1_l3:
-      "<strong>Permissions</strong> : accès <em>caméra</em> et <em>micro</em> (filmer), <em>stockage</em> (enregistrer), <em>réseau</em> (uploader).",
+      "<strong>Permissions</strong> : accès caméra et micro (filmer), stockage (enregistrer), réseau (uploader).",
     s1_l4:
-      "<strong>Abonnement</strong> : état de l’abonnement (actif/expiré) et identifiant d’achat fourni par l’App Store / Google Play. Aucune donnée de carte bancaire n’est traitée par Boothorama.",
+      "<strong>Abonnement</strong> : état (actif/expiré) et identifiant d’achat App Store / Google Play. Aucune donnée de carte bancaire traitée par Boothorama.",
     s1_l5:
-      "<strong>Diagnostic</strong> : journaux d’erreur anonymes (si activé au niveau du système) pour la stabilité.",
+      "<strong>Diagnostic</strong> : journaux d’erreur anonymes (si activé au niveau du système).",
 
     s2: "4. Finalités",
     s2_p1: "Fournir la capture 360°, le post-traitement et l’export/partage des vidéos.",
@@ -49,23 +54,27 @@ const I18N = {
     s3_p1:
       "<strong>Exécution du contrat</strong> : fonctions cœur (capture, enregistrement local, lecture).",
     s3_p2:
-      "<strong>Consentement</strong> : autorisations caméra/micro ; export vers Google Drive ; génération de lien de partage/QR.",
+      "<strong>Consentement</strong> : autorisations caméra/micro ; export Drive ; lien/QR ; connexion Google.",
     s3_p3:
       "<strong>Intérêt légitime</strong> : sécurité, prévention de la fraude, amélioration technique via diagnostics anonymisés.",
 
     s4: "6. Durées de conservation",
-    s4_l1:
-      "<strong>Sur l’appareil</strong> : jusqu’à suppression par vous depuis l’app.",
-    s4_l2:
-      "<strong>Sur Google Drive</strong> : tant que le fichier reste dans votre Drive.",
-    s4_l3:
-      "<strong>Jetons OAuth</strong> : durée strictement nécessaire pour l’export ; renouvelés/invalidés par Google.",
-    s4_l4:
-      "<strong>Preuves d’achat</strong> : durée requise pour gérer l’abonnement et respecter les obligations légales.",
+    s4_l1: "<strong>Sur l’appareil</strong> : jusqu’à suppression par vous depuis l’app.",
+    s4_l2: "<strong>Sur Google Drive</strong> : tant que le fichier reste dans votre Drive.",
+    s4_l3: "<strong>Jetons OAuth</strong> : durée strictement nécessaire ; renouvelés/invalidés par Google.",
+    s4_l4: "<strong>Preuves d’achat</strong> : durée requise pour gérer l’abonnement et respecter les obligations légales.",
 
     s5: "7. Destinataires et tiers",
     s5_p:
-      "Nous ne vendons pas vos données. L’authentification est fournie par <strong>Firebase Authentication</strong> (service Google — projet relié à <strong>Google Cloud Console</strong>). L’export est réalisé vers <strong>Google Drive</strong> (Google). Les paiements/abonnements sont traités par <strong>Apple App Store</strong> et/ou <strong>Google Play</strong>. Boothorama n’héberge pas vos médias et ne traite pas vos données de carte bancaire.",
+      "Nous ne vendons pas vos données. L’authentification est fournie par <strong>Firebase Authentication</strong> (service Google — projet relié à <strong>Google Cloud Console</strong>). L’export est réalisé vers <strong>Google Drive</strong>. Les paiements/abonnements sont traités par <strong>Apple App Store</strong> et/ou <strong>Google Play</strong>. Boothorama n’héberge pas vos médias et ne traite pas vos données de carte bancaire.",
+    s5_firebase:
+      "<strong>Firebase Authentication</strong> (Google) pour gérer les connexions Google et anonymes.",
+    s5_gdrive:
+      "<strong>Google Drive</strong> uniquement si vous activez l’export des vidéos.",
+    s5_stores:
+      "<strong>Apple App Store / Google Play</strong> pour la facturation des abonnements.",
+    s5_cloud:
+      "Le projet est hébergé dans la <strong>Google Cloud Console</strong> associée à l’app. Aucune base de données d’images/vidéos n’est hébergée par nos soins : les médias restent sur votre appareil, ou dans votre Drive si vous l’activez.",
 
     transfer: "8. Transferts hors UE",
     transfer_p:
@@ -75,12 +84,11 @@ const I18N = {
     qr_p:
       "Si le partage de lien Drive est activé, toute personne disposant du lien/QR peut accéder à la vidéo selon vos réglages Drive. Vous pouvez désactiver le partage ou supprimer le fichier à tout moment.",
 
-    // --- 9 bis ---
-    revoke: "9 bis. Déconnexion & révocation Google",
+    revoke: "9 bis. Révocation de l’accès Google",
     revoke_p1:
       "<strong>Dans l’app</strong> : vous pouvez vous déconnecter de Google pour stopper les exports futurs. Les vidéos déjà exportées restent dans votre Drive jusqu’à suppression par vous.",
     revoke_p2:
-      "<strong>Dans votre compte Google</strong> : vous pouvez <em>révoquer l’accès</em> de Boothorama 360 (Compte Google → Sécurité → Accès des tiers → retirer l’accès). Après révocation, l’app ne pourra plus exporter vers Drive tant que vous ne reconnectez pas votre compte. Les liens/QR existants restent valides tant que le partage Drive n’est pas désactivé ou que le fichier n’est pas supprimé.",
+      "<strong>Dans votre compte Google</strong> : vous pouvez <em>révoquer l’accès</em> de Boothorama 360 (Compte Google → Sécurité → Accès des tiers → retirer). Après révocation, l’app ne pourra plus exporter tant que vous ne reconnectez pas votre compte. Les liens/QR existants restent valides sauf si vous désactivez le partage ou supprimez le fichier.",
 
     delete: "10. Suppression",
     delete_l1:
@@ -89,12 +97,9 @@ const I18N = {
       "<strong>Depuis Google Drive</strong> : supprimez le fichier ou révoquez son lien de partage.",
 
     rights: "11. Vos droits",
-    rights_l1:
-      "Accès, rectification, effacement, portabilité, limitation, opposition.",
-    rights_l2:
-      "Retrait du consentement (Drive/partage/connexion Google) à tout moment.",
-    rights_l3:
-      "Réclamation : <strong>CNIL</strong> (cnil.fr).",
+    rights_l1: "Accès, rectification, effacement, portabilité, limitation, opposition.",
+    rights_l2: "Retrait du consentement (Drive/partage/connexion Google) à tout moment.",
+    rights_l3: "Réclamation : <strong>CNIL</strong> (cnil.fr).",
     rights_how:
       'Pour exercer vos droits : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
@@ -116,10 +121,12 @@ const I18N = {
   en: {
     title: "Privacy Policy – Boothorama 360",
     meta_desc: "Privacy policy for the Boothorama 360 app.",
+
     nav_privacy: "Privacy",
-    nav_legal: "Legal Notice",
     nav_terms: "Terms of Use",
+    nav_legal: "Legal Notice",
     nav_faq: "FAQ",
+
     badge_rgpd: "GDPR Compliant",
     h1: "Privacy Policy",
     intro:
@@ -127,7 +134,7 @@ const I18N = {
 
     who: "1. Who is the controller?",
     who_p:
-      'The data controller is <strong>Boothorama</strong> (see <a href="mentions-legales.html?lang=en">legal notice</a>). DPO/Privacy contact: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'The data controller is <strong>Boothorama</strong> (see <a href="legal.html">legal notice</a>). DPO/Privacy contact: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     account: "2. Accounts & authentication",
     account_l1:
@@ -139,13 +146,13 @@ const I18N = {
     s1_l1:
       "<strong>Local media</strong>: videos/images captured in the app — stored <em>on your device</em>. No upload to our servers.",
     s1_l2:
-      "<strong>Google Drive export (optional)</strong>: when enabled, rendered videos are uploaded to your Drive. The app stores locally the file ID/share link to manage the QR code.",
+      "<strong>Authentication identifiers</strong> (Firebase Auth): user <code>uid</code>, provider (Google/Anonymous) and, where available, Google profile metadata (e-mail, name, photo).",
     s1_l2b:
-  "<strong>Google Drive export (optional)</strong>: when enabled, the rendered video is uploaded to your Drive using Google tokens. Locally, the app keeps the file ID/share link (for the QR code).",
+      "<strong>Google Drive export (optional)</strong>: when enabled, the rendered video is uploaded to your Drive using Google tokens. The app keeps locally the file ID/share link (for the QR code).",
     s1_l3:
       "<strong>Permissions</strong>: camera & microphone (record), storage (save), network (upload).",
     s1_l4:
-      "<strong>Subscription</strong>: subscription status and purchase identifier from the App Store / Google Play. We do not process card data.",
+      "<strong>Subscription</strong>: status and purchase identifier from the App Store / Google Play. We do not process card data.",
     s1_l5:
       "<strong>Diagnostics</strong>: anonymous crash logs (if enabled at OS level).",
 
@@ -164,18 +171,22 @@ const I18N = {
       "<strong>Legitimate interest</strong>: security, fraud prevention, technical improvement using anonymized diagnostics.",
 
     s4: "6. Retention",
-    s4_l1:
-      "<strong>On device</strong>: until you delete it in the app.",
-    s4_l2:
-      "<strong>On Google Drive</strong>: as long as you keep it in your Drive.",
-    s4_l3:
-      "<strong>OAuth tokens</strong>: only as long as needed for export; renewed/invalidated by Google.",
-    s4_l4:
-      "<strong>Purchase records</strong>: as required to manage the subscription and comply with legal obligations.",
+    s4_l1: "<strong>On device</strong>: until you delete it in the app.",
+    s4_l2: "<strong>On Google Drive</strong>: as long as you keep it in your Drive.",
+    s4_l3: "<strong>OAuth tokens</strong>: only as long as needed; renewed/invalidated by Google.",
+    s4_l4: "<strong>Purchase records</strong>: as required to manage the subscription and comply with legal obligations.",
 
     s5: "7. Recipients & third parties",
     s5_p:
       "We do not sell data. Authentication is provided by <strong>Firebase Authentication</strong> (a Google service — project linked to <strong>Google Cloud Console</strong>). Exports are made to <strong>Google Drive</strong>. Payments/subscriptions are handled by <strong>Apple App Store</strong> and/or <strong>Google Play</strong>. Boothorama does not host your media and does not process card data.",
+    s5_firebase:
+      "<strong>Firebase Authentication</strong> (Google) to handle Google and anonymous sign-ins.",
+    s5_gdrive:
+      "<strong>Google Drive</strong> only if you enable exports.",
+    s5_stores:
+      "<strong>Apple App Store / Google Play</strong> for subscription billing.",
+    s5_cloud:
+      "The project is hosted in <strong>Google Cloud Console</strong> linked to the app. We do not host your images/videos: media stays on your device, or in your Drive if you enable it.",
 
     transfer: "8. International transfers",
     transfer_p:
@@ -185,12 +196,11 @@ const I18N = {
     qr_p:
       "If Drive link sharing is enabled, anyone with the link/QR can access the video according to your Drive settings. You may disable sharing or delete the file at any time.",
 
-    // --- 9 bis ---
     revoke: "9 bis. Sign-out & Google access revocation",
     revoke_p1:
       "<strong>In the app</strong>: you can sign out of Google to stop future exports. Videos already exported remain in your Drive until you delete them.",
     revoke_p2:
-      "<strong>In your Google Account</strong>: you can <em>revoke Boothorama 360 access</em> (Google Account → Security → Third-party access → remove). After revocation, the app cannot export to Drive until you reconnect. Existing links/QRs stay valid unless you disable Drive sharing or delete the file.",
+      "<strong>In your Google Account</strong>: you can <em>revoke Boothorama 360 access</em> (Google Account → Security → Third-party access → remove). After revocation, the app cannot export until you reconnect. Existing links/QRs stay valid unless you disable Drive sharing or delete the file.",
 
     delete: "10. Deletion",
     delete_l1:
@@ -226,10 +236,12 @@ const I18N = {
   es: {
     title: "Política de privacidad – Boothorama 360",
     meta_desc: "Política de privacidad de la aplicación Boothorama 360.",
+
     nav_privacy: "Privacidad",
-    nav_legal: "Aviso legal",
     nav_terms: "Condiciones de uso",
+    nav_legal: "Aviso legal",
     nav_faq: "FAQ",
+
     badge_rgpd: "Cumple con RGPD",
     h1: "Política de privacidad",
     intro:
@@ -237,7 +249,7 @@ const I18N = {
 
     who: "1. Responsable del tratamiento",
     who_p:
-      'El responsable es <strong>Boothorama</strong> (ver <a href="mentions-legales.html?lang=es">aviso legal</a>). Contacto privacidad/DPO: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'El responsable es <strong>Boothorama</strong> (ver <a href="legal.html">aviso legal</a>). Contacto privacidad/DPO: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     account: "2. Cuentas y autenticación",
     account_l1:
@@ -249,13 +261,13 @@ const I18N = {
     s1_l1:
       "<strong>Medios locales</strong>: vídeos/imágenes almacenados <em>en tu dispositivo</em>. No se suben a nuestros servidores.",
     s1_l2:
-      "<strong>Exportación a Google Drive (opcional)</strong>: si está activado, los vídeos renderizados se suben a tu Drive. La app guarda localmente el ID/enlace del archivo para gestionar el código QR.",
+      "<strong>Identificadores de autenticación</strong> (Firebase Auth): uid de usuario, proveedor (Google/Anónimo) y, cuando esté disponible, metadatos del perfil de Google (correo, nombre, foto).",
     s1_l2b:
-  "<strong>Exportación a Google Drive (opcional)</strong>: si está activado, el vídeo montado se sube a tu Drive con los tokens de Google. Localmente, la app guarda el ID/enlace del archivo (para el código QR).",
+      "<strong>Exportación a Google Drive (opcional)</strong>: si está activado, el vídeo montado se sube a tu Drive con tokens de Google. La app guarda localmente el ID/enlace del archivo (para el código QR).",
     s1_l3:
       "<strong>Permisos</strong>: cámara y micrófono (grabar), almacenamiento (guardar), red (subir).",
     s1_l4:
-      "<strong>Suscripción</strong>: estado de la suscripción e identificador de compra del App Store / Google Play. Boothorama no trata datos de tarjetas.",
+      "<strong>Suscripción</strong>: estado e identificador de compra del App Store / Google Play. Boothorama no trata datos de tarjetas.",
     s1_l5:
       "<strong>Diagnóstico</strong>: registros anónimos de fallos (si está activado a nivel del sistema).",
 
@@ -274,18 +286,22 @@ const I18N = {
       "<strong>Interés legítimo</strong>: seguridad, prevención de fraude, mejora técnica con diagnósticos anonimizados.",
 
     s4: "6. Conservación",
-    s4_l1:
-      "<strong>En el dispositivo</strong>: hasta que lo elimines.",
-    s4_l2:
-      "<strong>En Google Drive</strong>: mientras lo conserves.",
-    s4_l3:
-      "<strong>Tokens OAuth</strong>: solo el tiempo necesario; Google los renueva/inhabilita.",
-    s4_l4:
-      "<strong>Registros de compra</strong>: según requisitos legales y de gestión.",
+    s4_l1: "<strong>En el dispositivo</strong>: hasta que lo elimines.",
+    s4_l2: "<strong>En Google Drive</strong>: mientras lo conserves.",
+    s4_l3: "<strong>Tokens OAuth</strong>: solo el tiempo necesario; Google los renueva/inhabilita.",
+    s4_l4: "<strong>Registros de compra</strong>: según requisitos legales y de gestión.",
 
     s5: "7. Destinatarios y terceros",
     s5_p:
       "No vendemos datos. La autenticación la proporciona <strong>Firebase Authentication</strong> (servicio de Google — proyecto vinculado a <strong>Google Cloud Console</strong>). La exportación se realiza a <strong>Google Drive</strong>. Los pagos/suscripciones los gestionan <strong>Apple App Store</strong> y/o <strong>Google Play</strong>. Boothorama no aloja tus medios ni trata datos de tarjeta.",
+    s5_firebase:
+      "<strong>Firebase Authentication</strong> (Google) para gestionar inicios de sesión de Google y anónimos.",
+    s5_gdrive:
+      "<strong>Google Drive</strong> solo si habilitas la exportación.",
+    s5_stores:
+      "<strong>Apple App Store / Google Play</strong> para la facturación de suscripciones.",
+    s5_cloud:
+      "El proyecto está alojado en <strong>Google Cloud Console</strong> vinculado a la app. No alojamos tus imágenes/vídeos: permanecen en tu dispositivo o en tu Drive si lo habilitas.",
 
     transfer: "8. Transferencias internacionales",
     transfer_p:
@@ -295,12 +311,11 @@ const I18N = {
     qr_p:
       "Si habilitas la compartición de enlace de Drive, cualquiera con el enlace/QR puede acceder según tu configuración de Drive. Puedes desactivar la compartición o eliminar el archivo cuando quieras.",
 
-    // --- 9 bis ---
     revoke: "9 bis. Cierre de sesión y revocación en Google",
     revoke_p1:
       "<strong>En la app</strong>: puedes cerrar sesión en Google para detener futuras exportaciones. Los vídeos ya exportados permanecen en tu Drive hasta que los elimines.",
     revoke_p2:
-      "<strong>En tu Cuenta de Google</strong>: puedes <em>revocar el acceso</em> de Boothorama 360 (Cuenta de Google → Seguridad → Acceso de terceros → retirar). Tras la revocación, la app no podrá exportar a Drive hasta que vuelvas a conectar. Los enlaces/QR existentes siguen siendo válidos salvo que desactives la compartición o elimines el archivo.",
+      "<strong>En tu Cuenta de Google</strong>: puedes <em>revocar el acceso</em> de Boothorama 360 (Cuenta de Google → Seguridad → Acceso de terceros → retirar). Tras la revocación, la app no podrá exportar hasta que vuelvas a conectar. Los enlaces/QR existentes siguen siendo válidos salvo que desactives la compartición o elimines el archivo.",
 
     delete: "10. Eliminación",
     delete_l1:
@@ -334,46 +349,45 @@ const I18N = {
   }
 };
 
-// Détection de langue : paramètre ?lang prioritaire, sinon préférences navigateur.
-// Valeurs supportées : 'en' | 'fr' | 'es' ; fallback : 'en'
+// Détection : uniquement langue système (posée par le bootstrap)
 function detectLang() {
-  const params = new URLSearchParams(location.search);
-  const forced = params.get("lang");
-  if (forced && ["en", "fr", "es"].includes(forced)) return forced;
-
-  const list =
-    (navigator.languages && navigator.languages.length)
-      ? navigator.languages
-      : [navigator.language || "en"];
-
-  for (const l of list) {
-    const base = String(l || "").toLowerCase().slice(0, 2);
-    if (["en", "fr", "es"].includes(base)) return base;
-  }
-  return "en"; // fallback
+  return window.__BOOTHR_LANG__ || "en";
 }
 
 function applyI18n(lang) {
   const dict = I18N[lang] || I18N.en;
+  console.info("[i18n] detected lang:", lang);
 
-  // html@lang + data-lang
+  // html@lang + data-lang (bootstrap les a déjà posés)
   document.documentElement.lang = lang;
   document.documentElement.dataset.lang = lang;
 
-  // title & meta
+  // Title & meta description
   document.title = dict.title;
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute('content', dict.meta_desc);
+  if (meta) meta.setAttribute("content", dict.meta_desc);
 
-  // Contenu i18n (avec HTML autorisé)
+  // Remplacement des contenus i18n (HTML autorisé)
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key] !== undefined) el.innerHTML = dict[key];
+    const val =
+      (dict && dict[key] !== undefined) ? dict[key]
+      : (I18N.en && I18N.en[key] !== undefined) ? I18N.en[key]
+      : null;
+
+    if (val !== null) {
+      el.innerHTML = val;
+    } else {
+      console.warn(`[i18n] Missing key "${key}" for lang "${lang}" (and EN fallback).`);
+    }
   });
 
   // Footer : année courante
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Affiche le contenu une fois prêt (évite le flash de langue par défaut)
+  document.documentElement.style.visibility = "";
 }
 
 // Init
@@ -381,4 +395,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = detectLang();
   applyI18n(lang);
 });
-</script>
