@@ -90,46 +90,45 @@ const I18N = {
 };
 
 
-// Détection de langue : paramètre ?lang prioritaire, sinon préférences navigateur.
-// Valeurs supportées : 'en' | 'fr' | 'es' ; fallback : 'en'
+// Détection : uniquement langue système (posée par le bootstrap)
 function detectLang() {
-  const params = new URLSearchParams(location.search);
-  const forced = params.get("lang");
-  if (forced && ["en", "fr", "es"].includes(forced)) return forced;
-
-  const list =
-    (navigator.languages && navigator.languages.length)
-      ? navigator.languages
-      : [navigator.language || "en"];
-
-  for (const l of list) {
-    const base = String(l || "").toLowerCase().slice(0, 2);
-    if (["en", "fr", "es"].includes(base)) return base;
-  }
-  return "en"; // fallback
+  return window.__BOOTHR_LANG__ || "en";
 }
 
 function applyI18n(lang) {
   const dict = I18N[lang] || I18N.en;
+  console.info("[i18n] detected lang:", lang);
 
-  // html@lang + data-lang
+  // html@lang + data-lang (bootstrap les a déjà posés)
   document.documentElement.lang = lang;
   document.documentElement.dataset.lang = lang;
 
-  // title & meta
+  // Title & meta description
   document.title = dict.title;
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute('content', dict.meta_desc);
+  if (meta) meta.setAttribute("content", dict.meta_desc);
 
-  // Contenu i18n (avec HTML autorisé)
+  // Remplacement des contenus i18n (HTML autorisé)
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key] !== undefined) el.innerHTML = dict[key];
+    const val =
+      (dict && dict[key] !== undefined) ? dict[key]
+      : (I18N.en && I18N.en[key] !== undefined) ? I18N.en[key]
+      : null;
+
+    if (val !== null) {
+      el.innerHTML = val;
+    } else {
+      console.warn(`[i18n] Missing key "${key}" for lang "${lang}" (and EN fallback).`);
+    }
   });
 
   // Footer : année courante
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Affiche le contenu une fois prêt (évite le flash de langue par défaut)
+  document.documentElement.style.visibility = "";
 }
 
 // Init
