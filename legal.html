@@ -31,23 +31,36 @@
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="./">
-        <span class="brand__logo brand__logo--xl">
-          <img src="logo.png" alt="Boothorama 360">
-        </span>
-        <span class="brand__name">Boothorama 360</span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-  <a href="./" data-i18n="nav_privacy">Privacy Policy</a>
-  <a href="terms.html?lang=en" data-i18n="nav_terms">Terms of Use</a>
-  <a href="legal.html" data-i18n="nav_legal" aria-current="page">Legal Notice</a>
-  <a href="faq.html" data-i18n="nav_faq">FAQ</a>
-</nav>
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="./">
+      <span class="brand__logo brand__logo--xl">
+        <img src="logo.png" alt="Boothorama 360">
+      </span>
+      <span class="brand__name">Boothorama 360</span>
+    </a>
 
-    </div>
-  </header>
+    <!-- Bouton burger -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" data-i18n="menu_label">
+      Menu
+      <span class="nav-toggle__icon" aria-hidden="true">
+        <!-- icône burger simple -->
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="primary-nav" class="nav" aria-label="Navigation principale">
+      <a href="./" data-i18n="nav_privacy" aria-current="page">Confidentialité</a>
+      <a href="terms.html" data-i18n="nav_terms">Conditions d’utilisation</a>
+      <a href="legal.html" data-i18n="nav_legal">Mentions légales</a>
+      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
 
   <!-- HERO -->
   <section class="hero container">
