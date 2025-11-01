@@ -26,7 +26,7 @@
       s3_l2: "<strong>Connexion Google</strong> : optionnelle. Vous pouvez vous déconnecter ou révoquer l’accès à tout moment.",
 
       s4: "4. Abonnements, paiements, remboursements",
-      s4_l1: "Les achats sont gérés par l’App Store/Google Play. Boothorama ne traite pas vos données de carte.",
+      s4_l1: "Les achats sont gérés par l’App Store. Boothorama ne traite pas vos données de carte.",
       s4_l2: "La durée, le prix, le renouvellement et les essais gratuits sont indiqués dans le store.",
       s4_l3: "Gestion/annulation depuis votre compte Apple/Google. Les remboursements relèvent des politiques des stores.",
 
@@ -63,7 +63,7 @@
       s13_p: "Ces Conditions sont régies par le droit français. Les tribunaux du ressort de l’éditeur sont compétents, sous réserve des règles impératives applicables.",
 
       s14: "14. Contact",
-      s14_p: "Pour toute question : <a href=\"mailto:contact@exemple.com\">contact@exemple.com</a>. Pour la confidentialité : <a href=\"mailto:privacy@exemple.com\">privacy@exemple.com</a>. Voir la <a href=\"./\">politique de confidentialité</a>.",
+      s14_p: "Pour toute question : <a href=\"mailto:contact@boothorama360.com\">contact@boothorama360.com</a>. Voir la <a href=\"./\">politique de confidentialité</a>.",
 
       updated: "Dernière mise à jour :",
       privacy_link: "politique de confidentialité"
@@ -96,7 +96,7 @@
       s3_l2: "<strong>Google sign-in</strong>: optional. You can sign out or revoke access at any time.",
 
       s4: "4. Subscriptions, payments, refunds",
-      s4_l1: "Purchases are handled by the App Store/Google Play. Boothorama does not process your card data.",
+      s4_l1: "Purchases are handled by the App Store. Boothorama does not process your card data.",
       s4_l2: "Duration, price, renewal and trials are shown in the store.",
       s4_l3: "Manage/cancel from your Apple/Google account. Refunds depend on store policies.",
 
@@ -133,7 +133,7 @@
       s13_p: "These Terms are governed by French law. Courts at the publisher’s domicile shall have jurisdiction, subject to mandatory rules.",
 
       s14: "14. Contact",
-      s14_p: "Questions: <a href=\"mailto:contact@exemple.com\">contact@exemple.com</a>. Privacy: <a href=\"mailto:privacy@exemple.com\">privacy@exemple.com</a>. See the <a href=\"./\">privacy policy</a>.",
+      s14_p: "Questions: <a href=\"mailto:contact@boothorama360.com\">contact@boothorama360.com</a>. See the <a href=\"./\">privacy policy</a>.",
 
       updated: "Last updated:",
       privacy_link: "privacy policy"
@@ -166,7 +166,7 @@
       s3_l2: "<strong>Inicio de sesión con Google</strong>: opcional. Puedes cerrar sesión o revocar el acceso en cualquier momento.",
 
       s4: "4. Suscripciones, pagos y reembolsos",
-      s4_l1: "Las compras las gestionan App Store/Google Play. Boothorama no procesa tus datos de tarjeta.",
+      s4_l1: "Las compras las gestionan App Store. Boothorama no procesa tus datos de tarjeta.",
       s4_l2: "Duración, precio, renovación y pruebas se muestran en la tienda.",
       s4_l3: "Gestiona/cancela desde tu cuenta Apple/Google. Los reembolsos dependen de las políticas de las tiendas.",
 
@@ -203,7 +203,7 @@
       s13_p: "Estos Términos se rigen por la ley francesa. Los tribunales del domicilio del editor serán competentes, sujeto a normas imperativas.",
 
       s14: "14. Contacto",
-      s14_p: "Preguntas: <a href=\"mailto:contact@exemple.com\">contact@exemple.com</a>. Privacidad: <a href=\"mailto:privacy@exemple.com\">privacy@exemple.com</a>. Consulta la <a href=\"./\">política de privacidad</a>.",
+      s14_p: "Preguntas: <a href=\"mailto:contact@boothorama360.com\">contact@boothorama360.com</a>. Consulta la <a href=\"./\">política de privacidad</a>.",
 
       updated: "Última actualización:",
       privacy_link: "política de privacidad"
