@@ -22,7 +22,7 @@ const I18N = {
     // CONTENT
     who: "1. Qui est responsable ?",
     who_p:
-      'Le responsable de traitement est <strong>Boothorama</strong> (voir <a href="legal.html">mentions légales</a>). Contact DPO/Privacy : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'Le responsable de traitement est <strong>Boothorama</strong> (voir <a href="legal.html">mentions légales</a>). Contact DPO : <a href="mailto:contact@boothorama360.com">contact@boothorama360.com</a>.',
 
     account: "2. Comptes et authentification",
     account_l1:
@@ -66,13 +66,13 @@ const I18N = {
 
     s5: "7. Destinataires et tiers",
     s5_p:
-      "Nous ne vendons pas vos données. L’authentification est fournie par <strong>Firebase Authentication</strong> (service Google — projet relié à <strong>Google Cloud Console</strong>). L’export est réalisé vers <strong>Google Drive</strong>. Les paiements/abonnements sont traités par <strong>Apple App Store</strong> et/ou <strong>Google Play</strong>. Boothorama n’héberge pas vos médias et ne traite pas vos données de carte bancaire.",
+      "Nous ne vendons pas vos données. L’authentification est fournie par <strong>Firebase Authentication</strong> (service Google — projet relié à <strong>Google Cloud Console</strong>). L’export est réalisé vers <strong>Google Drive</strong>. Les paiements/abonnements sont traités par <strong>Apple App Store</strong>. Boothorama n’héberge pas vos médias et ne traite pas vos données de carte bancaire.",
     s5_firebase:
       "<strong>Firebase Authentication</strong> (Google) pour gérer les connexions Google et anonymes.",
     s5_gdrive:
       "<strong>Google Drive</strong> uniquement si vous activez l’export des vidéos.",
     s5_stores:
-      "<strong>Apple App Store / Google Play</strong> pour la facturation des abonnements.",
+      "<strong>Apple App Store</strong> pour la facturation des abonnements.",
     s5_cloud:
       "Le projet est hébergé dans la <strong>Google Cloud Console</strong> associée à l’app. Aucune base de données d’images/vidéos n’est hébergée par nos soins : les médias restent sur votre appareil, ou dans votre Drive si vous l’activez.",
 
@@ -100,8 +100,6 @@ const I18N = {
     rights_l1: "Accès, rectification, effacement, portabilité, limitation, opposition.",
     rights_l2: "Retrait du consentement (Drive/partage/connexion Google) à tout moment.",
     rights_l3: "Réclamation : <strong>CNIL</strong> (cnil.fr).",
-    rights_how:
-      'Pour exercer vos droits : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     security: "12. Sécurité",
     security_p:
@@ -134,7 +132,7 @@ const I18N = {
 
     who: "1. Who is the controller?",
     who_p:
-      'The data controller is <strong>Boothorama</strong> (see <a href="legal.html">legal notice</a>). DPO/Privacy contact: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'The data controller is <strong>Boothorama</strong> (see <a href="legal.html">legal notice</a>). DPO contact: <a href="mailto:contact@boothorama360.com">contact@boothorama360.com</a>.',
 
     account: "2. Accounts & authentication",
     account_l1:
@@ -152,7 +150,7 @@ const I18N = {
     s1_l3:
       "<strong>Permissions</strong>: camera & microphone (record), storage (save), network (upload).",
     s1_l4:
-      "<strong>Subscription</strong>: status and purchase identifier from the App Store / Google Play. We do not process card data.",
+      "<strong>Subscription</strong>: status and purchase identifier from the App Store. We do not process card data.",
     s1_l5:
       "<strong>Diagnostics</strong>: anonymous crash logs (if enabled at OS level).",
 
@@ -184,7 +182,7 @@ const I18N = {
     s5_gdrive:
       "<strong>Google Drive</strong> only if you enable exports.",
     s5_stores:
-      "<strong>Apple App Store / Google Play</strong> for subscription billing.",
+      "<strong>Apple App Store</strong> for subscription billing.",
     s5_cloud:
       "The project is hosted in <strong>Google Cloud Console</strong> linked to the app. We do not host your images/videos: media stays on your device, or in your Drive if you enable it.",
 
@@ -215,8 +213,6 @@ const I18N = {
       "Withdraw consent (Drive/sharing/Google Sign-In) at any time.",
     rights_l3:
       "Complain to your supervisory authority (e.g., CNIL in France).",
-    rights_how:
-      'Exercise your rights: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     security: "12. Security",
     security_p:
@@ -249,7 +245,7 @@ const I18N = {
 
     who: "1. Responsable del tratamiento",
     who_p:
-      'El responsable es <strong>Boothorama</strong> (ver <a href="legal.html">aviso legal</a>). Contacto privacidad/DPO: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
+      'El responsable es <strong>Boothorama</strong> (ver <a href="legal.html">aviso legal</a>). Contacto DPO: <a href="mailto:contact@boothorama360.com">contact@boothorama360.com</a>.',
 
     account: "2. Cuentas y autenticación",
     account_l1:
@@ -267,7 +263,7 @@ const I18N = {
     s1_l3:
       "<strong>Permisos</strong>: cámara y micrófono (grabar), almacenamiento (guardar), red (subir).",
     s1_l4:
-      "<strong>Suscripción</strong>: estado e identificador de compra del App Store / Google Play. Boothorama no trata datos de tarjetas.",
+      "<strong>Suscripción</strong>: estado e identificador de compra del App Store. Boothorama no trata datos de tarjetas.",
     s1_l5:
       "<strong>Diagnóstico</strong>: registros anónimos de fallos (si está activado a nivel del sistema).",
 
@@ -299,7 +295,7 @@ const I18N = {
     s5_gdrive:
       "<strong>Google Drive</strong> solo si habilitas la exportación.",
     s5_stores:
-      "<strong>Apple App Store / Google Play</strong> para la facturación de suscripciones.",
+      "<strong>Apple App Store</strong> para la facturación de suscripciones.",
     s5_cloud:
       "El proyecto está alojado en <strong>Google Cloud Console</strong> vinculado a la app. No alojamos tus imágenes/vídeos: permanecen en tu dispositivo o en tu Drive si lo habilitas.",
 
@@ -330,8 +326,6 @@ const I18N = {
       "Retirar el consentimiento (Drive/compartición/inicio de sesión con Google) en cualquier momento.",
     rights_l3:
       "Reclamar ante la autoridad de control (p. ej., CNIL).",
-    rights_how:
-      'Ejercer derechos: <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.',
 
     security: "12. Seguridad",
     security_p:
