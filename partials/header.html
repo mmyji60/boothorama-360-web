@@ -1,0 +1,65 @@
+<!-- /partials/header.html -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__logo">
+        <img src="logo.png" alt="Boothorama 360">
+      </span>
+      <span class="brand__name">Boothorama 360</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span data-i18n="menu_label">Menu</span>
+      <span class="nav-toggle__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <nav id="primary-nav" class="nav" aria-label="Navigation principale">
+      <a href="index.html" data-i18n="nav_home">Accueil</a>
+      <a href="privacy.html" data-i18n="nav_privacy">Confidentialité</a>
+      <a href="terms.html" data-i18n="nav_terms">Conditions</a>
+      <a href="legal.html" data-i18n="nav_legal">Mentions légales</a>
+      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+    </nav>
+
+    <!-- Sélecteur de langue (liste déroulante) -->
+    <nav class="lang-switch" aria-label="Language">
+      <div class="lang-dropdown">
+        <button
+          type="button"
+          class="lang-current"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="lang-menu"
+          data-i18n-attr="aria-label:lang_current_label"
+          title="Language"
+        >
+          <span class="lang-current__icon" aria-hidden="true"></span>
+          <span class="lang-current__name sr-only">English</span>
+          <span class="lang-current__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="currentColor"/></svg>
+          </span>
+        </button>
+
+        <div id="lang-menu" class="lang-menu" role="menu" hidden>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-lang="en">
+            <span class="lang-icon" aria-hidden="true"></span>
+            <span class="lang-name">English</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-lang="fr">
+            <span class="lang-icon" aria-hidden="true"></span>
+            <span class="lang-name">Français</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-lang="es">
+            <span class="lang-icon" aria-hidden="true"></span>
+            <span class="lang-name">Español</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+

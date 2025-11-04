@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Pré-détection de langue AVANT le 1er paint (synchrone, réutilisable) -->
+  <script src="js/script.js"></script>
+
+  <!-- i18n header (partagé sur toutes les pages) -->
+  <script src="i18n/i18n-header.js" defer></script>
+
+  <!-- i18n page (spécifique à cette page) -->
+  <script src="i18n/i18n-privacy.js" defer></script>
+
+  <!-- Header loader -->
+  <script type="module" src="js/header.js" defer></script>
+
+  <meta charset="utf-8">
+  <title>Boothorama 360</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- La description sera remplacée par i18n-privacy.js -->
+  <meta name="description" content="Boothorama 360 privacy policy.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.png">
+  <!-- Pas de <link rel="alternate" hreflang> : une seule URL sert toutes les langues -->
+</head>
+<body>
+  <!-- HEADER -->
+  <div id="site-header" role="banner" aria-label="En-tête"></div>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div>
+      <p class="badge badge--ok" data-i18n="badge_rgpd">Conforme RGPD</p>
+      <h1 class="hero__title" data-i18n="h1">Politique de confidentialité</h1>
+      <p class="hero__subtitle" data-i18n="intro">
+        Nous expliquons ici quelles données sont traitées par <strong>Boothorama 360</strong>,
+        pourquoi et pendant combien de temps. Aucune publicité, aucun traqueur.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="container content">
+    <article class="card">
+      <h2 data-i18n="who">1. Qui est responsable ?</h2>
+      <p data-i18n="who_p">
+        Le responsable de traitement est <strong>Boothorama</strong> (voir <a href="legal.html">mentions légales</a>).
+        Contact DPO/Privacy : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.
+      </p>
+
+      <h2 data-i18n="account">2. Comptes et authentification</h2>
+      <ul>
+        <li data-i18n="account_l1"><strong>Compte anonyme</strong> : aucun identifiant nominatif n’est collecté.</li>
+        <li data-i18n="account_l2"><strong>Connexion Google (optionnelle)</strong> : via <em>Firebase Authentication</em> (OAuth Google). Nous ne recevons que les jetons nécessaires aux fonctionnalités choisies (ex. export Drive).</li>
+      </ul>
+
+      <h2 data-i18n="s1">3. Données traitées</h2>
+      <ul>
+        <li data-i18n="s1_l1"><strong>Médias locaux</strong> : vidéos/images capturées dans l’app — stockées <em>uniquement sur l’appareil</em>. Aucun envoi vers nos serveurs.</li>
+        <li data-i18n="s1_l2"><strong>Identifiants d’authentification</strong> (Firebase Auth) : identifiant utilisateur (<code>uid</code>), fournisseur (Google/Anonyme), et le cas échéant les métadonnées exposées par Google (ex. e-mail, nom, photo) si vous les avez dans votre profil Google.</li>
+        <li data-i18n="s1_l2b"><strong>Export Google Drive (option)</strong> : si activé, la vidéo montée est téléversée dans votre Drive via les jetons Google. Localement, l’app garde l’ID du fichier / le lien de partage (pour QR code).</li>
+        <li data-i18n="s1_l3"><strong>Permissions</strong> : caméra, micro, stockage, réseau.</li>
+        <li data-i18n="s1_l4"><strong>Abonnement</strong> : état de l’abonnement (actif/expiré) et identifiant d’achat App Store / Google Play (aucune donnée de carte chez nous).</li>
+        <li data-i18n="s1_l5"><strong>Diagnostic</strong> : journaux d’erreur anonymes (si activé au niveau de l’OS) pour la stabilité.</li>
+      </ul>
+
+      <h2 data-i18n="s2">4. Finalités</h2>
+      <ul>
+        <li data-i18n="s2_p1">Fournir la capture 360°, le post-traitement et l’export/partage des vidéos.</li>
+        <li data-i18n="s2_p2">Permettre le partage par <strong>QR code</strong> d’un lien Drive.</li>
+        <li data-i18n="s2_p3">Gérer les achats intégrés/abonnements.</li>
+        <li data-i18n="s2_p4">Améliorer la stabilité via diagnostics (option système).</li>
+      </ul>
+
+      <h2 data-i18n="s3">5. Bases légales</h2>
+      <ul>
+        <li data-i18n="s3_p1"><strong>Exécution du contrat</strong> : fonctionnement de l’app (capture, enregistrement local, lecture).</li>
+        <li data-i18n="s3_p2"><strong>Consentement</strong> : autorisations caméra/micro ; export vers Google Drive ; génération de lien partage/QR ; connexion Google.</li>
+        <li data-i18n="s3_p3"><strong>Intérêt légitime</strong> : sécurité, lutte contre la fraude, amélioration technique via diagnostics anonymes.</li>
+      </ul>
+
+      <h2 data-i18n="s4">6. Durées de conservation</h2>
+      <ul>
+        <li data-i18n="s4_l1"><strong>Sur l’appareil</strong> : jusqu’à suppression par vous depuis l’app.</li>
+        <li data-i18n="s4_l2"><strong>Sur Google Drive</strong> : tant que le fichier reste dans votre Drive (vous pouvez le supprimer à tout moment).</li>
+        <li data-i18n="s4_l3"><strong>Jetons OAuth</strong> : durée strictement nécessaire pour l’export, renouvelés/invalidés par Google à échéance.</li>
+        <li data-i18n="s4_l4"><strong>Preuves d’achat</strong> : le temps requis pour la gestion de l’abonnement et les obligations légales comptables.</li>
+      </ul>
+
+      <h2 data-i18n="s5">7. Destinataires et tiers</h2>
+      <p data-i18n="s5_p">
+        Nous ne vendons pas vos données. Nous utilisons :
+      </p>
+      <ul>
+        <li data-i18n="s5_firebase"><strong>Firebase Authentication</strong> (Google) pour gérer les connexions Google et anonymes.</li>
+        <li data-i18n="s5_gdrive"><strong>Google Drive</strong> uniquement si vous activez l’export des vidéos.</li>
+        <li data-i18n="s5_stores"><strong>Apple App Store / Google Play</strong> pour la facturation des abonnements.</li>
+      </ul>
+      <p data-i18n="s5_cloud">
+        Le projet est hébergé dans la <strong>Google Cloud Console</strong> associée à l’app. Aucune base de données d’images/vidéos n’est hébergée par nos soins : les médias restent sur votre appareil, ou dans votre Drive si vous l’activez.
+      </p>
+
+      <h2 data-i18n="transfer">8. Transferts hors UE</h2>
+      <p data-i18n="transfer_p">
+        L’usage de services Google (Firebase Authentication, Google Drive, Google Cloud) peut impliquer des transferts hors UE. Google met en œuvre des garanties (notamment Clauses Contractuelles Types). En activant l’export Drive ou en utilisant la connexion Google, vous consentez à ces transferts.
+      </p>
+
+      <h2 data-i18n="qr">9. Partage par lien / QR code</h2>
+      <p data-i18n="qr_p">
+        Si vous activez le lien de partage dans Drive, <strong>toute personne disposant du lien/QR</strong> peut accéder à la vidéo selon les réglages de partage Drive.
+        Vous pouvez à tout moment <em>désactiver le partage ou supprimer le fichier</em> depuis Drive.
+      </p>
+
+      <h2 data-i18n="revoke">9 bis. Révocation de l’accès Google</h2>
+      <p data-i18n="revoke_p1">
+        <strong>Dans l’app</strong> : vous pouvez vous déconnecter de Google pour stopper les exports futurs. Les vidéos déjà exportées restent dans votre Drive jusqu’à suppression par vous.
+      </p>
+      <p data-i18n="revoke_p2">
+        <strong>Dans votre compte Google</strong> : vous pouvez <em>révoquer l’accès</em> de Boothorama 360 (Compte Google → Sécurité → Accès des tiers → retirer l’accès). Après révocation, l’app ne pourra plus exporter vers Drive tant que vous ne reconnectez pas votre compte. Les liens/QR existants restent valides tant que le partage Drive n’est pas désactivé ou que le fichier n’est pas supprimé.
+      </p>
+
+      <h2 data-i18n="delete">10. Suppression</h2>
+      <ul>
+        <li data-i18n="delete_l1"><strong>Depuis l’app</strong> : bouton « Supprimer » (local) ; si l’option est activée, suppression également sur Drive.</li>
+        <li data-i18n="delete_l2"><strong>Depuis Google Drive</strong> : supprimez le fichier ou révoquez son partage.</li>
+      </ul>
+
+      <h2 data-i18n="rights">11. Vos droits</h2>
+      <ul>
+        <li data-i18n="rights_l1">Accès, rectification, effacement, portabilité, limitation, opposition.</li>
+        <li data-i18n="rights_l2">Retrait du consentement (export Drive, liens de partage, connexion Google) à tout moment.</li>
+        <li data-i18n="rights_l3">Réclamation : <strong>CNIL</strong> (cnil.fr) si vous estimez que vos droits ne sont pas respectés.</li>
+      </ul>
+      <p data-i18n="rights_how">
+        Pour exercer vos droits : <a href="mailto:privacy@exemple.com">privacy@exemple.com</a>.
+      </p>
+
+      <h2 data-i18n="security">12. Sécurité</h2>
+      <p data-i18n="security_p">
+        Nous appliquons des mesures techniques et organisationnelles adaptées (chiffrement en transit lors de l’upload, stockage local sur l’appareil, principe de minimisation).
+        Conservez votre appareil et votre compte Google sécurisés (mot de passe, 2FA).
+      </p>
+
+      <h2 data-i18n="minors">13. Mineurs</h2>
+      <p data-i18n="minors_p">
+        L’app n’est pas destinée aux moins de 13 ans. Pour les 13–16 ans dans l’UE, l’autorisation d’un titulaire de l’autorité parentale peut être requise selon le pays.
+      </p>
+
+      <h2 data-i18n="changes">14. Modifications</h2>
+      <p data-i18n="changes_p">
+        Nous pouvons mettre à jour la présente politique. Les changements significatifs seront annoncés dans l’app.
+      </p>
+
+      <p class="small muted">
+        <span data-i18n="updated">Dernière mise à jour :</span>
+        <time id="lastUpdate" datetime="2025-10-24">24/10/2025</time>
+      </p>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="muted small">
+        © <span id="y"></span> Boothorama 360 •
+        <a href="legal.html" data-i18n="nav_legal">Mentions légales</a> •
+        <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- No-JS fallback : révèle la page si JS est désactivé -->
+  <noscript>
+    <style>html{visibility:visible}</style>
+  </noscript>
+</body>
+</html>
+

@@ -1,11 +1,8 @@
-  const I18N = {
+(function () {
+  const DICTS = {
     fr: {
       title: "Conditions d’utilisation – Boothorama 360",
       meta_desc: "Conditions générales d’utilisation de l’application Boothorama 360.",
-      nav_privacy: "Confidentialité",
-      nav_terms: "Conditions d’utilisation",
-      nav_legal: "Mentions légales",
-      nav_faq: "FAQ",
       badge_app: "Application mobile",
       h1: "Conditions d’utilisation",
       intro: "Ce document définit les règles d’utilisation de <strong>Boothorama 360</strong>, vos droits et obligations, ainsi que nos responsabilités.",
@@ -72,10 +69,6 @@
     en: {
       title: "Terms of Use – Boothorama 360",
       meta_desc: "Terms of Use for the Boothorama 360 application.",
-      nav_privacy: "Privacy",
-      nav_terms: "Terms of Use",
-      nav_legal: "Legal Notice",
-      nav_faq: "FAQ",
       badge_app: "Mobile app",
       h1: "Terms of Use",
       intro: "This document sets the rules for using <strong>Boothorama 360</strong>, your rights and obligations, and our responsibilities.",
@@ -142,10 +135,6 @@
     es: {
       title: "Términos de uso – Boothorama 360",
       meta_desc: "Términos de uso de la aplicación Boothorama 360.",
-      nav_privacy: "Privacidad",
-      nav_terms: "Condiciones de uso",
-      nav_legal: "Aviso legal",
-      nav_faq: "FAQ",
       badge_app: "Aplicación móvil",
       h1: "Términos de uso",
       intro: "Este documento establece las reglas de uso de <strong>Boothorama 360</strong>, tus derechos y obligaciones, y nuestras responsabilidades.",
@@ -210,49 +199,74 @@
     }
   };
 
-// Détection : uniquement langue système (posée par le bootstrap)
-function detectLang() {
-  return window.__BOOTHR_LANG__ || "en";
-}
 
-function applyI18n(lang) {
-  const dict = I18N[lang] || I18N.en;
-  console.info("[i18n] detected lang:", lang);
+  // Lang courante : définie par js/script.js (ou fallback __BOOTHR_LANG__)
+  function currentLang() {
+    const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase().slice(0,2);
+    if (DICTS[htmlLang]) return htmlLang;
+    const boot = (typeof window !== 'undefined' ? window.__BOOTHR_LANG__ : '') || '';
+    const bootBase = String(boot).toLowerCase().slice(0,2);
+    return DICTS[bootBase] ? bootBase : 'en';
+  }
 
-  // html@lang + data-lang (bootstrap les a déjà posés)
-  document.documentElement.lang = lang;
-  document.documentElement.dataset.lang = lang;
+  let LANG = currentLang();
 
-  // Title & meta description
-  document.title = dict.title;
-  const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute("content", dict.meta_desc);
+  function apply(root = document) {
+    const dict = DICTS[LANG] || DICTS.en;
 
-  // Remplacement des contenus i18n (HTML autorisé)
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val =
-      (dict && dict[key] !== undefined) ? dict[key]
-      : (I18N.en && I18N.en[key] !== undefined) ? I18N.en[key]
-      : null;
+    // data-i18n → textContent
+    root.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (key && dict[key] != null) el.textContent = dict[key];
+    });
 
-    if (val !== null) {
-      el.innerHTML = val;
-    } else {
-      console.warn(`[i18n] Missing key "${key}" for lang "${lang}" (and EN fallback).`);
+    // data-i18n-attr="placeholder:title,aria-label:menu_label"
+    root.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      const pairs = (el.dataset.i18nAttr || '').split(',').map(s => s.trim()).filter(Boolean);
+      pairs.forEach(pair => {
+        const [attr, key] = pair.split(':').map(s => s.trim());
+        if (attr && key && dict[key] != null) el.setAttribute(attr, dict[key]);
+      });
+    });
+  }
+
+  function applyAndReveal() {
+    // s'aligne sur la langue posée par script.js
+    LANG = currentLang();
+    apply(document);
+    // optionnel: définir l'attribut lang (script.js l'a déjà fait)
+    document.documentElement.setAttribute('lang', LANG);
+    // révéler si la page est cachée
+    if (document.documentElement.style.visibility === 'hidden') {
+      requestAnimationFrame(() => { document.documentElement.style.visibility = ''; });
     }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyAndReveal);
+  } else {
+    applyAndReveal();
+  }
+
+  // Écoute les changements globaux (provenant du header ou d'autres modules)
+  document.addEventListener('boothr:lang-changed', () => {
+    applyAndReveal();
   });
 
-  // Footer : année courante
-  const y = document.getElementById("y");
-  if (y) y.textContent = new Date().getFullYear();
-
-  // Affiche le contenu une fois prêt (évite le flash de langue par défaut)
-  document.documentElement.style.visibility = "";
-}
-
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = detectLang();
-  applyI18n(lang);
-});
+  // API minimale (pas de détection/persistance ici)
+  window.BOOTHR_I18N = {
+    apply,
+    get lang() { return LANG; },
+    setLang(l) {
+      // setter simple (pas de stockage, pas d'URL)
+      const base = String(l || '').toLowerCase().slice(0,2);
+      LANG = DICTS[base] ? base : 'en';
+      document.documentElement.setAttribute('lang', LANG);
+      apply(document);
+      // notifie pour les autres modules
+      try {
+        document.dispatchEvent(new CustomEvent('boothr:lang-changed', { detail: { lang: LANG } }));
+      } catch (_) {}
+    }
+  };
+})();

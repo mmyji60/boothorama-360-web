@@ -1,66 +1,50 @@
 <!doctype html>
 <html>
 <head>
-    <!-- Bootstrap langue : pose html@lang AVANT le 1er rendu, sans lire ?lang -->
-  <script>
-    (function () {
-      var supported = ["en", "fr", "es"];
-      var list = (navigator.languages && navigator.languages.length)
-        ? navigator.languages
-        : [navigator.language || "en"];
-      var pick = "en";
-      for (var i = 0; i < list.length; i++) {
-        var base = String(list[i] || "").toLowerCase().slice(0, 2);
-        if (supported.indexOf(base) !== -1) { pick = base; break; }
-      }
-      // Pose la langue AVANT le premier paint + masque jusqu'à i18n
-      var html = document.documentElement;
-      html.setAttribute("lang", pick);
-      html.dataset.lang = pick;
-      html.style.visibility = "hidden";
-      window.__BOOTHR_LANG__ = pick;
-    })();
-  </script>
+  <!-- Pré-détection de langue AVANT le 1er paint (synchrone, réutilisable) -->
+  <script src="js/script.js"></script>
+
+  <!-- i18n header (partagé sur toutes les pages) -->
+  <script src="i18n/i18n-header.js" defer></script>
+
+  <!-- i18n page (spécifique à chaque page si besoin) -->
+  <script src="i18n/i18n-legal.js" defer></script>
+
+  <!-- Header loader -->
+  <script type="module" src="js/header.js" defer></script>
+
   <meta charset="utf-8">
   <title data-i18n="title">Legal Notice – Boothorama 360</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" data-i18n="meta_desc"
-        content="Legal information and site publisher details for Boothorama 360.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Boothorama 360 : l’app photobooth 360° pour vos événements. Partage par QR code, export Google Drive, overlays illimités et import MP3.">
   <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Boothorama 360 — Photobooth 360°">
+  <meta property="og:description" content="Partage par QR code, export Google Drive, overlays illimités et import MP3.">
+  <meta property="og:image" content="cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Boothorama 360",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"iOS, Android",
+    "description":"App photobooth 360° : partage QR code, export Google Drive, overlays illimités, import MP3.",
+    "creator":{"@type":"Organization","name":"Boothorama"},
+    "image":"cover.jpg",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
 </head>
 <body>
   <!-- HEADER -->
-<header class="header">
-  <div class="container header__inner">
-    <a class="brand" href="./">
-      <span class="brand__logo brand__logo--xl">
-        <img src="logo.png" alt="Boothorama 360">
-      </span>
-      <span class="brand__name">Boothorama 360</span>
-    </a>
-
-    <!-- Bouton burger -->
-    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" data-i18n="menu_label">
-      Menu
-      <span class="nav-toggle__icon" aria-hidden="true">
-        <!-- icône burger simple -->
-        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </button>
-
-    <!-- Navigation -->
-    <nav id="primary-nav" class="nav" aria-label="Navigation principale">
-      <a href="./" data-i18n="nav_privacy" aria-current="page">Confidentialité</a>
-      <a href="terms.html" data-i18n="nav_terms">Conditions d’utilisation</a>
-      <a href="legal.html" data-i18n="nav_legal">Mentions légales</a>
-      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
-    </nav>
-  </div>
-</header>
-
+  <div id="site-header" role="banner" aria-label="En-tête"></div>
 
   <!-- HERO -->
   <section class="hero container">
@@ -131,8 +115,8 @@
     </div>
   </footer>
 
-  <script src="i18n-legal.js"></script>
-      <script src="script.js"></script>
-
+  <noscript>
+    <style>html{visibility:visible}</style>
+  </noscript>
 </body>
 </html>
