@@ -108,9 +108,11 @@
 
     // data-i18n → textContent
     root.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (key && dict[key] != null) el.textContent = dict[key];
-    });
+  const key = el.dataset.i18n;
+  if (key && dict[key] != null) {
+    el.innerHTML = dict[key];
+  }
+});
 
     // data-i18n-attr="placeholder:title,aria-label:menu_label"
     root.querySelectorAll('[data-i18n-attr]').forEach(el => {
