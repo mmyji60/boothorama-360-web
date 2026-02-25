@@ -50,6 +50,12 @@
       demo_fallback:
         "Votre navigateur ne peut pas lire la vidéo. Téléchargez la démo ici.",
 
+        "support_title": "Support",
+  "support_intro": "Une question, un problème technique ou une suggestion ?",
+  "support_contact_label": "Contactez notre équipe support :",
+  "support_eta": "Nous répondons généralement sous 24 à 48 heures ouvrées.",
+  "nav_support": "Support",
+
       // CTA / Download
       cta_try: "Essayer Boothorama 360",
       cta_faq: "Lire la FAQ",
@@ -102,6 +108,12 @@
       feat_more_h: "Also",
       feat_more_1: "Auto-edit (slow-mo, boomerang, LUT)",
       feat_more_2: "Offline mode during events",
+
+        "support_title": "Support",
+  "support_intro": "A question, a technical issue, or a suggestion?",
+  "support_contact_label": "Contact our support team:",
+  "support_eta": "We usually reply within 24–48 business hours.",
+  "nav_support": "Support",
 
       // Demo
       demo_title: "Quick demo",
@@ -164,6 +176,12 @@
       feat_more_h: "Además",
       feat_more_1: "Edición automática (cámara lenta, boomerang, LUT)",
       feat_more_2: "Modo sin conexión durante el evento",
+
+        "support_title": "Soporte",
+  "support_intro": "¿Una pregunta, un problema técnico o una sugerencia?",
+  "support_contact_label": "Contacta con nuestro equipo de soporte:",
+  "support_eta": "Normalmente respondemos en 24–48 horas laborables.",
+  "nav_support": "Soporte",
 
       // Demo
       demo_title: "Demo rápida",
