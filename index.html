@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
   <!-- Pré-détection de langue AVANT le 1er paint (synchrone, réutilisable) -->
   <script src="js/script.js"></script>
@@ -16,15 +16,21 @@
   <script type="module" src="js/header.js" defer></script>
 
   <meta charset="utf-8">
-  <title>Boothorama 360 — Photobooth 360° pour événements</title>
+  <title>Boothorama 360 — App photobooth 360° + Controller iOS gratuit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Boothorama 360 : l’app photobooth 360° pour vos événements. Partage par QR code, export Google Drive, overlays illimités et import MP3.">
+  <meta
+    name="description"
+    content="Boothorama 360 : l’app photobooth 360° pour vos événements. Capture 360°, QR code, export Google Drive, overlays illimités, import MP3 et application Controller gratuite pour piloter votre booth à distance."
+  >
   <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Boothorama 360 — Photobooth 360°">
-  <meta property="og:description" content="Partage par QR code, export Google Drive, overlays illimités et import MP3.">
+  <meta property="og:title" content="Boothorama 360 — Photobooth 360° et Controller gratuit">
+  <meta
+    property="og:description"
+    content="Capture 360°, QR code, export Google Drive, overlays illimités, MP3 et application gratuite Boothorama 360 Controller pour le pilotage à distance."
+  >
   <meta property="og:image" content="cover.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,8 +42,8 @@
     "@type":"SoftwareApplication",
     "name":"Boothorama 360",
     "applicationCategory":"MultimediaApplication",
-    "operatingSystem":"iOS, Android",
-    "description":"App photobooth 360° : partage QR code, export Google Drive, overlays illimités, import MP3.",
+    "operatingSystem":"iOS",
+    "description":"App photobooth 360° pour événements avec QR code, export Google Drive, overlays illimités, import MP3 et application gratuite de contrôle à distance.",
     "creator":{"@type":"Organization","name":"Boothorama"},
     "image":"cover.jpg",
     "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
@@ -48,53 +54,67 @@
   <!-- HEADER -->
   <div id="site-header" role="banner" aria-label="En-tête"></div>
 
-<!-- HERO -->
-<section class="hero container">
-  <div class="hero__grid">
-    <div class="hero__text">
-      <h1 class="hero__title" data-i18n="hero_h1">Le photobooth 360° simple, rapide, spectaculaire</h1>
-      <p class="hero__subtitle" data-i18n="hero_sub">
-        Créez des vidéos 360° qui claquent en quelques secondes. Partage instantané par QR code, export vers Google Drive, overlays illimités et bande-son MP3 personnalisée.
-      </p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="#features" data-i18n="cta_features">Voir les fonctionnalités</a>
-        <a class="btn btn--ghost" href="#demo" data-i18n="cta_demo">Voir la démo</a>
-      </div>
-    </div>
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero__grid">
+      <div class="hero__text">
+        <span class="badge badge--ok">iOS ecosystem for 360 events</span>
+        <h1 class="hero__title" data-i18n="hero_h1">
+          Le photobooth 360° simple, rapide, spectaculaire
+        </h1>
+        <p class="hero__subtitle" data-i18n="hero_sub">
+          Créez des vidéos 360° premium en quelques secondes. Capture, overlays, musique, QR code, export Google Drive… et pilotez maintenant votre booth à distance avec l’application gratuite Boothorama 360 Controller.
+        </p>
 
-    <!-- Carrousel -->
-    <div class="hero__media">
-      <div class="carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Aperçu Boothorama 360">
-        <div class="carousel__viewport">
-          <div class="carousel__slide is-active" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 sur 5">
-            <img src="images/Screenshot_events.png" alt="Interface Boothorama 360 — écran de capture" loading="eager" decoding="async">
-          </div>
-          <div class="carousel__slide" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 sur 5">
-            <img src="images/Screenshot_sequences.png" alt="Interface Boothorama 360 — réglage overlays" loading="lazy" decoding="async">
-          </div>
-          <div class="carousel__slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 sur 5">
-            <img src="images/Screenshot_musics.png" alt="Interface Boothorama 360 — export et partage QR" loading="lazy" decoding="async">
-          </div>
-          <div class="carousel__slide" id="slide-4" role="group" aria-roledescription="slide" aria-label="4 sur 5">
-            <img src="images/Screenshot_frames.png" alt="Interface Boothorama 360 — frames menu" loading="lazy" decoding="async">
-          </div>
-          <div class="carousel__slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="5 sur 5">
-            <img src="images/Screenshot_play.png" alt="Interface Boothorama 360 — play" loading="lazy" decoding="async">
-          </div>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#features" data-i18n="cta_features">Voir les fonctionnalités</a>
+          <a class="btn btn--ghost" href="#controller">Découvrir Controller</a>
+          <a class="btn btn--ghost" href="#download">Télécharger</a>
         </div>
 
-        <button class="carousel__btn prev" type="button" aria-controls="hero-carousel" aria-label="Image précédente">❮</button>
-        <button class="carousel__btn next" type="button" aria-controls="hero-carousel" aria-label="Image suivante">❯</button>
+        <ul class="hero__highlights" aria-label="Points forts">
+          <li>QR code instantané</li>
+          <li>Export Google Drive</li>
+          <li>Overlays illimités</li>
+          <li>Controller gratuit</li>
+        </ul>
+      </div>
 
-        <div class="carousel__dots" role="tablist" aria-label="Sélectionner une image">
-          <button class="is-active" role="tab" aria-selected="true" aria-controls="slide-1" data-index="0"><span class="sr-only">Aller à l’image 1</span></button>
-          <button role="tab" aria-selected="false" aria-controls="slide-2" data-index="1"><span class="sr-only">Aller à l’image 2</span></button>
-          <button role="tab" aria-selected="false" aria-controls="slide-3" data-index="2"><span class="sr-only">Aller à l’image 3</span></button>
+      <!-- Carrousel -->
+      <div class="hero__media">
+        <div class="carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Aperçu Boothorama 360">
+          <div class="carousel__viewport">
+            <div class="carousel__slide is-active" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 sur 5">
+              <img src="images/Screenshot_events.png" alt="Interface Boothorama 360 — écran de capture" loading="eager" decoding="async">
+            </div>
+            <div class="carousel__slide" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 sur 5">
+              <img src="images/Screenshot_sequences.png" alt="Interface Boothorama 360 — réglage overlays" loading="lazy" decoding="async">
+            </div>
+            <div class="carousel__slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 sur 5">
+              <img src="images/Screenshot_musics.png" alt="Interface Boothorama 360 — export et partage QR" loading="lazy" decoding="async">
+            </div>
+            <div class="carousel__slide" id="slide-4" role="group" aria-roledescription="slide" aria-label="4 sur 5">
+              <img src="images/Screenshot_frames.png" alt="Interface Boothorama 360 — menu frames" loading="lazy" decoding="async">
+            </div>
+            <div class="carousel__slide" id="slide-5" role="group" aria-roledescription="slide" aria-label="5 sur 5">
+              <img src="images/Screenshot_play.png" alt="Interface Boothorama 360 — lecture du rendu" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <button class="carousel__btn prev" type="button" aria-controls="hero-carousel" aria-label="Image précédente">❮</button>
+          <button class="carousel__btn next" type="button" aria-controls="hero-carousel" aria-label="Image suivante">❯</button>
+
+          <div class="carousel__dots" role="tablist" aria-label="Sélectionner une image">
+            <button class="is-active" role="tab" aria-selected="true" aria-controls="slide-1" data-index="0"><span class="sr-only">Aller à l’image 1</span></button>
+            <button role="tab" aria-selected="false" aria-controls="slide-2" data-index="1"><span class="sr-only">Aller à l’image 2</span></button>
+            <button role="tab" aria-selected="false" aria-controls="slide-3" data-index="2"><span class="sr-only">Aller à l’image 3</span></button>
+            <button role="tab" aria-selected="false" aria-controls="slide-4" data-index="3"><span class="sr-only">Aller à l’image 4</span></button>
+            <button role="tab" aria-selected="false" aria-controls="slide-5" data-index="4"><span class="sr-only">Aller à l’image 5</span></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- SOCIAL PROOF / STATS -->
   <section class="container strip strip--muted" aria-labelledby="kpi-title">
@@ -102,6 +122,8 @@
     <ul class="kpis">
       <li><strong>10s</strong><span data-i18n="kpi_render">pour un rendu standard</span></li>
       <li><strong>∞</strong><span data-i18n="kpi_overlay">overlays & presets</span></li>
+      <li><strong>2 apps</strong><span>un workflow complet</span></li>
+      <li><strong>Free</strong><span>Controller iOS</span></li>
     </ul>
   </section>
 
@@ -110,7 +132,6 @@
     <article class="card">
       <h2 data-i18n="feat_title">Fonctionnalités clés</h2>
       <div class="features">
-        <!-- QR code sharing -->
         <section class="feature">
           <div class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="32" height="32"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-6v-2h4v-4z" fill="currentColor"/></svg>
@@ -121,7 +142,6 @@
           </p>
         </section>
 
-        <!-- Google Drive export -->
         <section class="feature">
           <div class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="32" height="32"><path d="M7.5 4l4.5 7.8L7.5 20H2l4.5-8L2 4h5.5zm14.5 0l-9 16h-5.5l9-16H22z" fill="currentColor"/></svg>
@@ -132,7 +152,6 @@
           </p>
         </section>
 
-        <!-- Overlays illimités -->
         <section class="feature">
           <div class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="32" height="32"><path d="M3 5h18v2H3zM5 9h14v10H5z" fill="currentColor"/></svg>
@@ -143,7 +162,6 @@
           </p>
         </section>
 
-        <!-- Import MP3 -->
         <section class="feature">
           <div class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z" fill="currentColor"/></svg>
@@ -154,7 +172,26 @@
           </p>
         </section>
 
-        <!-- Bonus: autres atouts -->
+        <section class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 4h12a2 2 0 0 1 2 2v12h-2V8.83l-5.59 5.58-4-4L4 14.83V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
+          </div>
+          <h3>Capture premium</h3>
+          <p>
+            Une expérience pensée pour l’événementiel : rapide à lancer, visuelle, simple à prendre en main et efficace en prestation.
+          </p>
+        </section>
+
+        <section class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M7 4h10a3 3 0 0 1 3 3v10h-2V7a1 1 0 0 0-1-1H7V4zm-4 4h10a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H3V8zm2 2v9a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1z" fill="currentColor"/></svg>
+          </div>
+          <h3>Écosystème 2 apps</h3>
+          <p>
+            Utilisez Boothorama360 pour capturer et Boothorama 360 Controller pour piloter à distance depuis un second appareil iOS.
+          </p>
+        </section>
+
         <section class="feature">
           <div class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 2l3 7h7l-5.6 4.1L18.8 22 12 17.8 5.2 22l2.4-8.9L2 9h7z" fill="currentColor"/></svg>
@@ -168,12 +205,103 @@
       </div>
     </article>
 
-    <!-- PRICING / DOWNLOAD (placeholder) -->
+    <!-- ECOSYSTEM / CONTROLLER -->
+    <section id="controller" aria-labelledby="controller-title">
+      <article class="card card--highlight">
+        <div class="ecosystem">
+          <div class="ecosystem__content">
+            <p class="eyebrow">Nouveau</p>
+            <h2 id="controller-title">Deux apps, un workflow ultra fluide</h2>
+            <p class="lead">
+              Boothorama360 capture vos vidéos. <strong>Boothorama 360 Controller</strong> vous permet de piloter votre installation à distance depuis un second appareil iPhone ou iPad.
+            </p>
+
+            <div class="ecosystem__grid">
+              <section class="mini-card">
+                <h3>Boothorama360</h3>
+                <p>
+                  L’application principale pour capturer, monter et livrer des vidéos 360° professionnelles avec overlays, QR code, export Drive et bande-son personnalisée.
+                </p>
+                <ul class="list--check">
+                  <li>Capture et rendu 360°</li>
+                  <li>Overlays illimités</li>
+                  <li>Partage QR code</li>
+                  <li>Export Google Drive</li>
+                </ul>
+              </section>
+
+              <section class="mini-card mini-card--accent">
+                <span class="pill">Gratuite</span>
+                <h3>Boothorama 360 Controller</h3>
+                <p>
+                  La télécommande événementielle pensée pour les pros. Lancez vos captures à distance, synchronisez les vidéos automatiquement et partagez-les sans toucher à l’appareil principal.
+                </p>
+                <ul class="list--check list--check-light">
+                  <li>Démarrage / arrêt à distance</li>
+                  <li>Synchronisation automatique des vidéos</li>
+                  <li>Prévisualisation sur l’appareil contrôleur</li>
+                  <li>Partage instantané depuis le second appareil</li>
+                </ul>
+                <div class="hero__ctas">
+                  <a
+                    class="btn btn--light"
+                    href="https://apps.apple.com/gr/app/boothorama-360-controller/id6759395575"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Télécharger Controller
+                  </a>
+                </div>
+              </section>
+            </div>
+
+            <p class="muted small">
+              Idéal pour les mariages, soirées, activations de marque et installations 360° où chaque seconde compte.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- DOWNLOAD -->
     <article id="download" class="card">
       <h2 data-i18n="dl_title">Téléchargement</h2>
-      <p class="muted" data-i18n="dl_sub">Disponible iOS.</p>
-      <div class="store-badges">
-        <a class="store-badge disabled" aria-disabled="true" href="https://apps.apple.com/us/app/boothorama360-photobooth-360/id6755298252" data-i18n="badge_appstore">App Store</a>
+      <p class="muted">
+        Un écosystème iOS complet pour capturer, contrôler et livrer vos vidéos 360° plus vite.
+      </p>
+
+      <div class="download-grid">
+        <section class="download-app">
+          <p class="eyebrow">Application principale</p>
+          <h3>Boothorama360</h3>
+          <p>
+            Capture 360°, overlays illimités, QR code, export Google Drive, musique MP3 et post-processing avancé.
+          </p>
+          <a
+            class="store-badge"
+            href="https://apps.apple.com/us/app/boothorama360-photobooth-360/id6755298252"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Télécharger sur l’App Store
+          </a>
+        </section>
+
+        <section class="download-app download-app--accent">
+          <p class="eyebrow">Companion app gratuite</p>
+          <h3>Boothorama 360 Controller</h3>
+          <p>
+            Contrôlez votre booth à distance depuis un second appareil iOS. Une solution simple, rapide et pro pour fluidifier vos prestations.
+          </p>
+          <a
+            class="store-badge store-badge--light"
+            href="https://apps.apple.com/gr/app/boothorama-360-controller/id6759395575"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Télécharger gratuitement
+          </a>
+        </section>
       </div>
     </article>
   </main>
@@ -197,7 +325,7 @@
       </p>
     </article>
   </section>
-  
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
@@ -206,8 +334,8 @@
         <a href="privacy.html" data-i18n="nav_privacy">Confidentialité</a> •
         <a href="terms.html" data-i18n="nav_terms">Conditions</a> •
         <a href="legal.html" data-i18n="nav_legal">Mentions légales</a> •
-        <a href="faq.html" data-i18n="nav_faq">FAQ</a>
-        <a href="#support">Support</a> •
+        <a href="faq.html" data-i18n="nav_faq">FAQ</a> •
+        <a href="#support">Support</a>
       </p>
     </div>
   </footer>
@@ -215,6 +343,10 @@
   <noscript>
     <style>html{visibility:visible}</style>
   </noscript>
+
+  <script>
+    const yearEl = document.getElementById("y");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
